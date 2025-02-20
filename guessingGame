@@ -1,0 +1,56 @@
+//Please change the file name to main.cpp if you intend to run it.
+//The code will not run otherwise.
+#include <iostream>
+#include <cstdlib>  // For rand() and srand()
+#include <ctime>
+
+
+void guessingGame();
+
+
+int main() {
+	guessingGame();
+	return 0;
+}
+
+void guessingGame() {
+
+	std::srand(std::time(0));
+	int randomNumber = (std::rand() % 10) + 1;
+
+
+
+	int guess;
+	int tries = 3;
+	bool firstTime = true;
+
+	while(tries>0) {
+		if (firstTime) {
+			std::cout << "A random number between 1-10 has been generated." << std::endl;
+			std::cout << "Please enter a guess for what you think it is below." << std::endl;
+			firstTime = false;
+		}
+
+		else if (!firstTime) {
+			std::cout << tries << " tries remaining. Guess again below." << std::endl;
+		}
+
+		std::cin >> guess;
+
+		if(guess == randomNumber) {
+			std::cout << "You guessed the number right!" << std::endl;
+			std::cout <<"The number was : " << randomNumber;
+			break;
+		}
+
+		else {
+			std::cout << "Your guess was wrong." << std::endl;
+		}
+
+		tries -= 1;
+	}
+
+	if (tries == 0) {
+		std::cout << "You have lost. The number was : " << randomNumber << std::endl;
+	}
+}
