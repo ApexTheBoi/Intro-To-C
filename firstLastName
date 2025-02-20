@@ -1,0 +1,25 @@
+#include <iostream>
+
+
+void firstLastName();
+
+
+int main(){
+    firstLastName();
+    return 0;
+}
+
+void firstLastName(){
+    
+    std::string nameF;
+    std::string nameL;
+    std::cout << "Enter a first name : " << std::endl;
+    std::cin >> nameF;
+    
+    std::cout << std::endl;
+    
+    std::cout << "Enter a last name" << std::endl;
+    std::cin >> nameL;
+    
+    std::cout << "Your name is : " << nameF << " " << nameL << std::endl;
+}
